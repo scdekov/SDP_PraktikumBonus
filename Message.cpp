@@ -5,7 +5,7 @@
 Message::Message(string _sender, string _recipient, string _message):sender(_sender),
 														    recipient(_recipient),
 														    data(_message){}
-void Message::markAsReaded()
+void Message::markAsRead()
 {
 	isRead=true;
 }		

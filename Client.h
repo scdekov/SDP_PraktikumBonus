@@ -19,9 +19,9 @@ private:
 public:
 	Client(string _name, Server* _server);
 	void printAllMessages();
-	void printUnreadedMessages();
+	void printUnreadMessages();
 	bool sendMessage(string, string);
-	void reciveMessage(Message*);
+	void receiveMessage(Message*);
 	string getName();
 };
 

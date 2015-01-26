@@ -13,7 +13,7 @@ struct Message
 	bool isRead;
 
 	Message(string,string,string);
-	void markAsReaded();
+	void markAsRead();
 	void printMessage();
 };
 

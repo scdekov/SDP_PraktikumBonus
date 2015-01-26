@@ -12,7 +12,7 @@ void Client::printAllMessages()
 	}
 }
 
-void Client::printUnreadedMessages()
+void Client::printUnreadMessages()
 {
 	for (int i = Messages.size()-1; i >= 0; i--)
 	{
@@ -23,7 +23,7 @@ void Client::printUnreadedMessages()
 		{
 			Messages[i]->printMessage();
 			cout<<endl;
-			Messages[i]->markAsReaded();
+			Messages[i]->markAsRead();
 		}
 	}
 }
@@ -34,7 +34,7 @@ bool Client::sendMessage(string recipient, string message)
 	return server->sendMessage(recipient, msg);
 }
 
-void Client::reciveMessage(Message* msg)
+void Client::receiveMessage(Message* msg)
 {
 	Messages.push_back(msg);
 }

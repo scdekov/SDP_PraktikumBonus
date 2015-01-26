@@ -23,7 +23,7 @@ bool Server::sendMessage(string to,Message* msg)
 		return false;
 	}else
 	{
-		clients[to]->reciveMessage(msg);
+		clients[to]->receiveMessage(msg);
 		return true;
 	}
 }
