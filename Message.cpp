@@ -12,7 +12,7 @@ void Message::markAsRead()
 
 void Message::printMessage()
 {
-	cout<<"From:"<<recipient<<endl
+	cout<<"From:"<<sender<<endl
 		<<data;
 }
 

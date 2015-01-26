@@ -8,6 +8,7 @@ void Client::printAllMessages()
 	for (int i = 0; i < Messages.size(); ++i)
 	{
 		Messages[i]->printMessage();
+		Messages[i]->markAsRead();
 		cout<<endl;
 	}
 }
@@ -18,7 +19,7 @@ void Client::printUnreadMessages()
 	{
 		if (Messages[i]->isRead)
 		{
-			break;
+			return;
 		}else
 		{
 			Messages[i]->printMessage();
