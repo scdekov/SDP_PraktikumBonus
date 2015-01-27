@@ -28,7 +28,7 @@ int main()
 	pesho->printUnreadMessages();
 	cout<<endl;
 
-	sv->printAllClients();
+	srv->printAllClients();
 	
 	
 	return 0;

@@ -16,7 +16,7 @@ private:
 	bool checkIfClientExist(string name);
 public:
 	Server();
-	bool sendMessage(string,Message*);
+	bool sendMessage(Message*);
 	void addClient(Client* toBeAdded);
 	void printAllClients();
 };

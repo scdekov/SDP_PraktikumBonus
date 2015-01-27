@@ -32,7 +32,7 @@ void Client::printUnreadMessages()
 bool Client::sendMessage(string recipient, string message)
 {
 	Message* msg = new Message(this->name,recipient, message);
-	return server->sendMessage(recipient, msg);
+	return server->sendMessage(msg);
 }
 
 void Client::receiveMessage(Message* msg)

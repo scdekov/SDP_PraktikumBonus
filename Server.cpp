@@ -16,14 +16,14 @@ bool Server::checkIfClientExist(string name)
 
 Server::Server(){}
 
-bool Server::sendMessage(string to,Message* msg)
+bool Server::sendMessage(Message* msg)
 {
-	if (!checkIfClientExist(to))
+	if (!checkIfClientExist(msg->recipient))
 	{
 		return false;
 	}else
 	{
-		clients[to]->receiveMessage(msg);
+		clients[msg->recipient]->receiveMessage(msg);
 		return true;
 	}
 }
