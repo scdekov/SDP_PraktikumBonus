@@ -119,10 +119,10 @@ void Client::printAndProceedFriendRequests()
 
 void Client::sendFriendRequest(string to)
 {
-	server->putFriendRequestIn(this->name,to);
+	server->receiveFriendRequest(this->name,to);
 }
 
-void Client::putFriendRequestIn(string from)
+void Client::receiveFriendRequest(string from)
 {
 	friendRequests.push(from);
 }

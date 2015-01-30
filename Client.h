@@ -33,7 +33,7 @@ public:
 	void printMyFriends();
 	void printAndProceedFriendRequests();
 	void sendFriendRequest(string);
-	void putFriendRequestIn(string);
+	void receiveFriendRequest(string);
 };
 
 #endif
