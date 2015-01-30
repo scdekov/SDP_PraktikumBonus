@@ -17,6 +17,7 @@ private:
 public:
 	Server();
 	bool sendMessage(Message*);
+	void putFriendRequestIn(string,string);
 	void addClient(Client* toBeAdded);
 	void printAllClients();
 };

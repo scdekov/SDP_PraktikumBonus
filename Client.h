@@ -4,6 +4,7 @@
 #include <iostream>
 #include <string>
 #include <vector>
+#include <queue>
 #include "Message.h"
 #include "Server.h"
 
@@ -15,14 +16,24 @@ class Client
 private:
 	Server* server;
 	string name;
-	vector<Message*> Messages;
+	vector<Message*> messages;
+	vector<string> friends;
+	queue<string> friendRequests;
+
+	void encryptMessage(string&);
+	void decryptMessage(string&);
 public:
 	Client(string _name, Server* _server);
+	string getName();
 	void printAllMessages();
 	void printUnreadMessages();
 	bool sendMessage(string, string);
 	void receiveMessage(Message*);
-	string getName();
+	void printClientsInServer();
+	void printMyFriends();
+	void printAndProceedFriendRequests();
+	void sendFriendRequest(string);
+	void putFriendRequestIn(string);
 };
 
 #endif

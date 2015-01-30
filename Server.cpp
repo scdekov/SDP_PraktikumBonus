@@ -42,3 +42,12 @@ void Server::printAllClients()
 }
 
 
+void Server::putFriendRequestIn(string from, string to)
+{
+	if (clients.find(from)!=clients.end())
+	{
+		clients[to]->putFriendRequestIn(from);
+	}
+}
+
+
