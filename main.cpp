@@ -3,6 +3,7 @@
 #include "Client.h"
 #include "Server.h"
 #include "Message.h"
+#include "Event.h"
 using namespace std;
 
 
@@ -15,12 +16,11 @@ int main()
 	Client* pesho = new Client(pes,srv);
 	srv->addClient(sv);
 	srv->addClient(pesho);
-	//sv->printClientsInServer();
-	sv->sendFriendRequest("pesho");
-	pesho->printAndProceedFriendRequests();
-	cout<<"=========================="<<endl;
-	pesho->printMyFriends();
-	
+	sv->hostEvent("football","vtornik","20:00","stadion Pleven");
+	sv->inviteForEvent("football","pesho");
+	pesho->printAndProceeInvitationsForEvents();
+	srv->printEvents();
+
 	
 	return 0;
 }

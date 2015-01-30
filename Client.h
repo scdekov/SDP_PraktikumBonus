@@ -5,6 +5,7 @@
 #include <string>
 #include <vector>
 #include <queue>
+#include <stack>
 #include "Message.h"
 #include "Server.h"
 
@@ -19,11 +20,12 @@ private:
 	vector<Message*> messages;
 	vector<string> friends;
 	queue<string> friendRequests;
+	stack<string> invitationsForEvents;
 
 	void encryptMessage(string&);
 	void decryptMessage(string&);
 public:
-	Client(string _name, Server* _server);
+	Client(string, Server*);
 	string getName();
 	void printAllMessages();
 	void printUnreadMessages();
@@ -34,6 +36,12 @@ public:
 	void printAndProceedFriendRequests();
 	void sendFriendRequest(string);
 	void receiveFriendRequest(string);
+	void hostEvent(string,string,string,string);
+	void printAllEvents();
+	void inviteForEvent(string,string);
+	void printAndProceeInvitationsForEvents();
+	void receiveInvitationForEvent(string);
 };
 
 #endif
+	

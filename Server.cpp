@@ -51,3 +51,39 @@ void Server::receiveFriendRequest(string from, string to)
 }
 
 
+void Server::addEvent(Event* event)
+{
+	events[event->name]=event;
+}
+
+
+void Server::printEvents()
+{
+	for (map<string,Event*>::iterator i = events.begin(); i != events.end(); ++i)
+	{
+		i->second->printEventInfo();
+	}
+}
+
+void Server::addGuestToEvent(string guestName, string eventName)
+{
+	if (events.find(eventName)!=events.end())
+	{
+		events[eventName]->addGuest(guestName);
+	}
+}
+
+void Server::inviteForEvent(string eventName, string guestName)
+{
+	if (events.find(eventName)!=events.end())
+	{
+		events[eventName]->addInvitation(guestName);
+		clients[guestName]->receiveInvitationForEvent(eventName);
+	}
+}
+
+void Server::printEventInfo(string eventName)
+{
+	events[eventName]->printEventInfo();
+}
+

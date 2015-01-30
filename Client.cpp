@@ -126,3 +126,47 @@ void Client::receiveFriendRequest(string from)
 {
 	friendRequests.push(from);
 }
+
+void Client::hostEvent(string _name, string date, string time, string location)
+{
+	Event* event = new Event(_name,date,time,location,this->name);
+	server->addEvent(event);
+}
+
+void Client::printAllEvents()
+{
+	server->printEvents();
+}
+
+void Client::printAndProceeInvitationsForEvents()
+{
+	while(invitationsForEvents.size())
+	{
+		cout<<"You are invited for event:";
+		server->printEventInfo(invitationsForEvents.top());
+		cout<<"Do you wan't to attend this event y/n?>";
+		string choice;
+		cin>>choice;
+		if (choice=="y")
+		{
+			server->addGuestToEvent(this->name,invitationsForEvents.top());
+			invitationsForEvents.pop();
+		}else if(choice=="n")
+		{
+			invitationsForEvents.pop();
+		}else
+		{
+			cout<<"Wrong comand!"<<endl;
+		}
+	}
+}
+
+void Client::inviteForEvent(string eventName,string guestName)
+{	
+	server->inviteForEvent(eventName,guestName);
+}
+
+void Client::receiveInvitationForEvent(string eventName)
+{
+	invitationsForEvents.push(eventName);
+}
