@@ -37,3 +37,17 @@ void Event::addInvitation(string guestName)
 {
 	invited.push_back(guestName);
 }
+
+
+bool Event::checkIfGuestWillAttend(string guest)
+{
+	for (int i = 0; i < willAttend.size(); ++i)
+	{
+		if (willAttend[i]==guest)
+		{
+			return true;
+		}
+	}
+	return false;
+}
+

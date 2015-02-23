@@ -16,6 +16,8 @@ struct Event
 	void addGuest(string);
 	void RemoveInvitation(string);
 	void addInvitation(string);
+	bool checkIfGuestWillAttend(string);
+
 };
 
 #endif

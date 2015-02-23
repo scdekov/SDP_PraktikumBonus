@@ -4,22 +4,23 @@
 #include "Server.h"
 #include "Message.h"
 #include "Event.h"
+#include "CommandParser.h"
 using namespace std;
 
 
-int main()
+
+
+
+
+
+
+
+
+int main(int argc, char* argv[])
 {
-	string svetlio="svetlio";
-	string pes="pesho";
 	Server* srv = new Server();
-	Client* sv = new Client(svetlio,srv);
-	Client* pesho = new Client(pes,srv);
-	srv->addClient(sv);
-	srv->addClient(pesho);
-	sv->hostEvent("football","vtornik","20:00","stadion Pleven");
-	sv->inviteForEvent("football","pesho");
-	pesho->printAndProceeInvitationsForEvents();
-	srv->printEvents();
+	CommandParser parser(srv);
+	parser.mainMenu();
 
 	
 	return 0;

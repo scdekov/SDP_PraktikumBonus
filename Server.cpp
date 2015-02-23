@@ -87,3 +87,98 @@ void Server::printEventInfo(string eventName)
 	events[eventName]->printEventInfo();
 }
 
+
+bool Server::logClient(string name, string password)
+{
+	return clients[name]->login(password);
+}
+
+void Server::clientForgottenPassword(string name)
+{
+	clients[name]->forgottenPassword();
+}
+
+bool Server::checkUserEmail(string username, string email)
+{
+	return clients[username]->checkEmail(email);
+}
+
+void Server::printPotentialFriendsOf(string name)
+{
+	vector<string> potentialFriends;
+	for (map<string,Client*>::iterator it = clients.begin(); it != clients.end()&&potentialFriends.size()<10; ++it)
+	{
+		if (it->first!=name)
+		{
+			if(it->second->checkForMutturalFriend(name)&&it->first!=name)
+			{
+				potentialFriends.push_back(it->first);
+			}
+		}
+	}
+	if(potentialFriends.size()<10)
+	{
+		for (map<string,Client*>::iterator it = clients.begin(); it != clients.end()&&potentialFriends.size()<10; ++it)
+		{
+			if (!it->second->checkForFriendshipWith(name)&&it->first!=name)
+			{
+				potentialFriends.push_back(it->first);
+			}
+		}
+	}
+	for (int i = 0; i < potentialFriends.size(); ++i)
+	{
+		cout<<potentialFriends[i]<<endl;
+	}
+	if (potentialFriends.size()==0)
+	{
+		cout<<"Empty"<<endl;
+	}
+}
+
+
+
+void Server::printPotentialEvents(string name, vector<string> friends)
+{
+	vector<string> potentialEvents;
+	for (map<string,Event*>::iterator it = events.begin(); it!=events.end()&&potentialEvents.size()<10; ++it)
+	{
+		if (!it->second->checkIfGuestWillAttend(name))
+		{
+			for (int i = 0; i < friends.size(); ++i)
+			{
+				if (!it->second->checkIfGuestWillAttend(friends[i]))
+				{
+					potentialEvents.push_back(it->first);
+					break;
+				}
+			}
+		}
+	}
+
+	if (potentialEvents.size()<10)
+	{
+		for (map<string,Event*>::iterator it = events.begin(); it!=events.end()&&potentialEvents.size()<10; ++it)
+		{
+			if (!it->second->checkIfGuestWillAttend(name))
+			{
+				potentialEvents.push_back(it->first);
+			}
+		}
+	}
+
+	for (int i = 0; i < potentialEvents.size(); ++i)
+	{
+		cout<<potentialEvents[i]<<endl;
+	}
+	if (potentialEvents.size()==0)
+	{
+		cout<<"Empty"<<endl;
+	}
+}
+
+
+void Server::sendEmail(string name,string securityCode)
+{
+	return;
+}
