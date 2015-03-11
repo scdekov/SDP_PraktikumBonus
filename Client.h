@@ -55,7 +55,6 @@ public:
 	void printPotentialEvents();
 	void changePassword(string);
 	void gen_random(string&);
-	void sendEmail(string);
 
 };
 

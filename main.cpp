@@ -20,6 +20,7 @@ int main(int argc, char* argv[])
 {
 	Server* srv = new Server();
 	CommandParser parser(srv);
+	system("clear");
 	parser.mainMenu();
 
 	

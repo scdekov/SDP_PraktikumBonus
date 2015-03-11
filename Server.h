@@ -36,7 +36,7 @@ public:
 	bool checkUserEmail(string, string);
 	void printPotentialFriendsOf(string);
 	void printPotentialEvents(string,vector<string>);
-	void sendEmail(string,string);
+	void send_email(string,string);
 };
 
 #endif

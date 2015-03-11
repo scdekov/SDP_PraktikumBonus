@@ -8,6 +8,8 @@
 #include <string>
 #include <stdio.h>
 #include <sqlite3.h> 
+#include <termios.h>
+#include <unistd.h>
 using namespace std;
 
 class Server;
@@ -28,6 +30,7 @@ public:
 	void forgottenPassword();
 	void loggedUserMenu(string);
 	void accountOptions(string);
+	string getPass();
 
 };
 

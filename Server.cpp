@@ -1,5 +1,11 @@
 #include "Server.h"
+#include "email.cpp"
 
+
+void Server::send_email(string email, string message)
+{
+	sendEmail(email,message);
+}
 
 
 bool Server::checkIfClientExist(string name)
@@ -178,7 +184,3 @@ void Server::printPotentialEvents(string name, vector<string> friends)
 }
 
 
-void Server::sendEmail(string name,string securityCode)
-{
-	return;
-}

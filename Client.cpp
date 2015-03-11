@@ -214,14 +214,14 @@ void Client::forgottenPassword()
 {
 	string newPassword = "00000000";
 	gen_random(newPassword);
-	string message = "Your new password is :"+newPassword;
-	sendEmail(message);
+	string message = "Your new password is >"+newPassword;
+	password=newPassword;
+	server->send_email(email,message);
 }
 
-void Client::sendEmail(string message)
-{
-	return;
-}
+
+
+
 
 
 bool Client::checkEmail(string _email)
