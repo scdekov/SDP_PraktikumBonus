@@ -1,9 +1,11 @@
 #include "CommandParser.h"
-
+#include <ctime> 
 
 CommandParser::CommandParser(Server* _server):server(_server){}
 
 void CommandParser::gen_random(string& s) {
+	srand((unsigned)time(0)); 
+
     static const char alphanum[] =
         "0123456789"
         "ABCDEFGHIJKLMNOPQRSTUVWXYZ"

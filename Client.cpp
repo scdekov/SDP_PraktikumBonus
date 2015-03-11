@@ -1,5 +1,5 @@
 #include "Client.h"
-
+#include <ctime>
 
 Client::Client(string _name, string _password,string _email, Server* _server):name(_name),password(_password)
 																			,server(_server),email(_email){}
@@ -199,6 +199,8 @@ bool Client::login(string _password)
 }
 
 void Client::gen_random(string& s) {
+	srand((unsigned)time(0)); 
+
     static const char alphanum[] =
         "0123456789"
         "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
